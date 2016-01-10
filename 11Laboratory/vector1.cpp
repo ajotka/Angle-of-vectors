@@ -42,18 +42,21 @@ int main()
     std::cout << std::endl;
     
     //sprawdzenie dlugosci
-    float a1,a2,b1,b2;
-    float dlugosc1, dlugosc2;
-    a1=v1[0];
-    a2=v1[1];
-    
-    dlugosc1 = sqrt(pow(a1,2)+pow(a2,2));
+    float a[ile],b[ile];
+    float dlugosc1= 0.0, dlugosc2=0.0;
+
+    for( int i = 0; i < ile; i++ ) {
+        a[i]=pow(v1[i],2);	
+        dlugosc1 += a[i];
+        
+        b[i]=pow(v2[i],2);	
+        dlugosc2 += b[i];
+	}
+
+	dlugosc1 = sqrt(dlugosc1);
     std::cout << "Dlugosc v1 = " << dlugosc1 << std::endl;
-    
-    b1=v2[0];
-    b2=v2[1];
-    
-    dlugosc2 = sqrt(pow(b1,2)+pow(b2,2));
+
+	dlugosc2 = sqrt(dlugosc2);
     std::cout << "Dlugosc v2 = " << dlugosc2 << std::endl;
     
     if (dlugosc1 == dlugosc2) {
@@ -106,7 +109,9 @@ int main()
 		}
 		else {
 		alfa=acos(cosalfa);
-		std::cout << "kat: " << alfa << " rad" << std::endl;	
+		std::cout << "kat: " << alfa << " rad" << std::endl;
+		alfa=(alfa*360)/(2*3.14);
+		std::cout << "kat: " << alfa << " stopni" << std::endl;	
 		}
 	}
 	else {
